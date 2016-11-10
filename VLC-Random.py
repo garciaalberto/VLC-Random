@@ -97,16 +97,33 @@ def listaToDict(lista):
     return Dic
 
 
+def consigueDatos(lib,numCan):
+    import xml.etree.ElementTree as ET
+    root = ET.parse("lista.xspf").getroot()
+    for i in range(0,numCan):
+        title = root[1][i][1].text
+        track_number = root[1][i][4].text
+        artist = root[1][i][2].text
+        album = root[1][i][3].text
+        location = root[1][i][0].text
+        real_location = location[location.find("./biblioteca"):]
+        lib[title] = {"tracknumber":track_number,"artist":artist,"album":album,"location":real_location}
+    return lib
+
+
+numCan = 3
+libreria = {}
+libreria = consigueDatos(libreria,numCan)
 
 ## PROGRAMA PRINCIPAL ##
-libreria = {"California_Uber_Alles": 
+'''libreria = {"California_Uber_Alles": 
                 {"track-number": 3, "artist": "Dead Kennedys", "album": "Dead Kennedys", "location": "./biblioteca/California_Uber_Alles.mp3"},
             "Seattle_Party": 
                 {"track-number": 1, "artist": "Chastity Belt", "album": "No regrets", "location": "./biblioteca/Seattle_Party.flac"},
             "King_Kunta":
                 {"track-number": 3, "artist": "Kendrick Lamar", "album": "To Pimp A Butterfly", "location": "./biblioteca/King_Kunta.mp3"}   
             }
-
+'''
 
 
 playListInicial = []
