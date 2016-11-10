@@ -20,7 +20,7 @@ def checkPlaySuffle(playListInicial):
 
 def seleccionaCancionRandom(libreria):
     assert isinstance (libreria,dict) #precondicion
-    numeroCanciones=len(libreria)
+    numeroCanciones=len(libreria) #necesario para el assert (postcondicion)
     cancionRandom = random.choice(list(libreria.keys()))
 
 
@@ -99,7 +99,7 @@ def listaToDict(lista):
 
 
 ## PROGRAMA PRINCIPAL ##
-libreria = {"California_Uber_Alles.mp3": 
+libreria = {"California_Uber_Alles": 
                 {"track-number": 3, "artist": "Dead Kennedys", "album": "Dead Kennedys", "location": "./biblioteca/California_Uber_Alles.mp3"},
             "Seattle_Party": 
                 {"track-number": 1, "artist": "Chastity Belt", "album": "No regrets", "location": "./biblioteca/Seattle_Party.flac"},
