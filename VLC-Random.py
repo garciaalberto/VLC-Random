@@ -82,18 +82,19 @@ def generarplayListInicial(liberia,playListInicial):
         nombre=seleccionaCancionRandom(libreria)
         if nombre not in playListInicial:
             playListInicial.append(nombre)
-
+    assert isinstance (playListInicial, list)
     return playListInicial
 
 
 
 def listaToDict(lista):
+    assert isinstance (lista, list) #precondicion
     Dic = {}
     i=1
     for item in lista:
         Dic[i]=item
         i+=1
-
+    assert isinstance (dic, dict) #postcondicion
     return Dic
 
 
